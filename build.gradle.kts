@@ -23,7 +23,9 @@ tasks.withType<KotlinCompile> {
 
 val sourcesJar by tasks.creating(Jar::class) {
     group = JavaBasePlugin.DOCUMENTATION_GROUP
-    from(sourceSets["main"].allSource)
+    description = "Assembles sources JAR"
+    classifier = "sources"
+    from(sourceSets.getAt("main").allSource)
 }
 
 artifacts.add("archives", sourcesJar)
